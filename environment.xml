@@ -1,0 +1,191 @@
+<mujoco>
+<compiler angle="radian" meshdir="meshes/"/>
+<size njmax="500" nconmax="10000"/>
+<option gravity="0 0 -9.806" iterations="50" solver="Newton" timestep="0.002"/>
+<visual><headlight ambient="0.3 0.3 0.3" /></visual>
+<asset>
+<mesh name="trunk" file="trunk.stl"/>
+<mesh name="hip" file="hip.stl"/>
+</asset>
+<asset>
+<texture builtin="gradient" height="512" rgb1="1.0 0.7 0.4" rgb2="0.5 0.5 0.5" type="skybox" width="512" />
+</asset>
+<worldbody>
+<light diffuse=".25 .25 .25" dir="1 -1 -2" pos="0 20 20" />
+<geom rgba=".5 .5 .5 1" pos="5 5 0" size="5 5 0.1" type="plane" contype="1" conaffinity="1"/>
+<geom rgba="1.0 0 0 1" pos= "5 10 0.1" size="0.5 0.5 0.1" type="plane" contype="1" conaffinity="1"/>
+
+
+
+<body name="trunk" pos="0 0 0.16">
+<inertial pos="0.0127283 0.00218554 0.000514891" quat="0.00186575 0.711506 0.000389649 0.702677" mass="4.714" diaginertia="0.0648213 0.0565803 0.0169323"/>
+<joint type="free"/>
+<geom type="mesh" contype="1" conaffinity="1" group="1" rgba="0.913725 0.913725 0.847059 1" mesh="trunk"/>
+<geom size="0.1335 0.066 0.057" type="box" contype="1" conaffinity="1" rgba="0.913725 0.913725 0.847059 0" />
+<geom size="0.0005 0.0005 0.0005" type="box" contype="1" conaffinity="1" group="1" rgba="0.8 0 0 0"/>
+<geom size="0.0005 0.0005 0.0005" type="box" contype="1" conaffinity="1" rgba="0.8 0 0 0"/>
+<site name="imu" pos="0 0 0"/>
+<body name="FR_hip" pos="0.183 -0.047 0">
+<inertial pos="-0.003311 -0.000635 3.1e-05" quat="0.507528 0.506268 0.491507 0.494499" mass="0.696" diaginertia="0.000807752 0.00055293 0.000468983"/>
+<joint name="FR_hip_joint" pos="0 0 0" axis="1 0 0" limited="true" range="-0.3 0.3"/>
+<geom quat="0 1 0 0" type="mesh" contype="1" conaffinity="1" group="1" rgba="0.913725 0.913725 0.847059 1" mesh="hip"/>
+<geom contype="1" conaffinity="1" size="0.04 0.04" pos="0 -0.055 0" quat="0.707107 0.707107 0 0" type="cylinder" rgba="0.913725 0.913725 0.847059 0"/>
+</body>
+<body name="FL_hip" pos="0.183 0.047 0">
+<inertial pos="-0.003311 0.000635 3.1e-05" quat="0.494499 0.491507 0.506268 0.507528" mass="0.696" diaginertia="0.000807752 0.00055293 0.000468983"/>
+<joint name="FL_hip_joint" pos="0 0 0" axis="1 0 0" limited="true" range="-0.3 0.3"/>
+<geom type="mesh" contype="1" conaffinity="1" group="1" rgba="0.913725 0.913725 0.847059 1" mesh="hip"/>
+<geom contype="1" conaffinity="1" size="0.04 0.04" pos="0 0.055 0" quat="0.707107 0.707107 0 0" type="cylinder" rgba="0.913725 0.913725 0.847059 0"/>
+</body>
+<body name="RR_hip" pos="-0.183 -0.047 0">
+<inertial pos="0.003311 -0.000635 3.1e-05" quat="0.491507 0.494499 0.507528 0.506268" mass="0.696" diaginertia="0.000807752 0.00055293 0.000468983"/>
+<joint name="RR_hip_joint" pos="0 0 0" axis="1 0 0" limited="true" range="-0.1 0.1"/>
+<geom quat="0 0 0 -1" type="mesh" contype="1" conaffinity="1" group="1" rgba="0.913725 0.913725 0.847059 1" mesh="hip"/>
+<geom contype="1" conaffinity="1" size="0.04 0.04" pos="0 -0.055 0" quat="0.707107 0.707107 0 0" type="cylinder" rgba="0.913725 0.913725 0.847059 0"/>
+</body>
+<body name="RL_hip" pos="-0.183 0.047 0">
+<inertial pos="0.003311 0.000635 3.1e-05" quat="0.506268 0.507528 0.494499 0.491507" mass="0.696" diaginertia="0.000807752 0.00055293 0.000468983"/>
+<joint name="RL_hip_joint" pos="0 0 0" axis="1 0 0" limited="true" range="-0.1 0.1"/>
+<geom quat="0 0 1 0" type="mesh" contype="1" conaffinity="1" group="1" rgba="0.913725 0.913725 0.847059 1" mesh="hip"/>
+<geom contype="1" conaffinity="1" size="0.04 0.04" pos="0 0.055 0" quat="0.707107 0.707107 0 0" type="cylinder" rgba="0.913725 0.913725 0.847059 0"/>
+</body>
+</body>
+
+
+<body pos="7.0 1.0 0.2">
+<joint type="free"/>
+<geom mass="1" contype="1" conaffinity="1" rgba=".9 .9 0 0.5" size="0.1 0.1 0.1" type="box"/>
+</body>
+<body pos="6.0 0.0 0">
+<joint type="free"/>
+<geom mass="1" contype="1" conaffinity="1" rgba="0 .9 0 0.5" size="0.1 0.1 0.1" type="box"/>
+</body>
+<body pos="5.0 0.0 0">
+<joint type="free"/>
+<geom mass="1" contype="1" conaffinity="1" rgba=".9 .9 0 0.5" size="0.1 0.1 0.1" type="box"/>
+</body>
+<body pos="6.0 0.0 0">
+<joint type="free"/>
+<geom mass="1" contype="1" conaffinity="1" rgba="0 .9 0 0.5" size="0.1 0.1 0.1" type="box"/>
+</body>
+<body pos="5.0 0.0 0">
+<joint type="free"/>
+<geom mass="1" contype="1" conaffinity="1" rgba=".9 .9 0 0.5" size="0.1 0.1 0.1"  type="box"/>
+</body>
+<body pos="6.0 0.0 0">
+<joint type="free"/>
+<geom mass="1" contype="1" conaffinity="1" rgba="0 .9 0 0.5" size="0.1 0.1 0.1" type="box"/>
+</body>
+<body pos="5.0 0.0 0">
+<joint type="free"/>
+<geom mass="1" contype="1" conaffinity="1" rgba=".9 .9 0 0.5" size="0.1 0.1 0.1" type="box"/>
+</body>
+<body pos="6.0 0.0 0">
+<joint type="free"/>
+<geom mass="1" contype="1" conaffinity="1" rgba="0 .9 0 0.5" size="0.1 0.1 0.1" type="box"/>
+</body>
+<body pos="5.0 0.0 0">
+<joint type="free"/>
+<geom mass="1" contype="1" conaffinity="1" rgba=".9 .9 0 0.5" size="0.1 0.1 0.1" type="box"/>
+</body>
+<body pos="6.0 0.0 0">
+<joint type="free"/>
+<geom mass="1" contype="1" conaffinity="1" rgba="0 .9 0 0.5" size="0.1 0.1 0.1" type="box"/>
+</body>
+<body pos="5.0 0.0 0">
+<joint type="free"/>
+<geom mass="1" contype="1" conaffinity="1" rgba=".9 .9 0 0.5" size="0.1 0.1 0.1" type="box"/>
+</body>
+<body pos="6.0 0.0 0">
+<joint type="free"/>
+<geom mass="1" contype="1" conaffinity="1" rgba="0 .9 0 0.5" size="0.1 0.1 0.1" type="box"/>
+</body>
+<body pos="5.0 0.0 0">
+<joint type="free"/>
+<geom mass="1" contype="1" conaffinity="1" rgba=".9 .9 0 0.5" size="0.1 0.1 0.1" type="box"/>
+</body>
+<body pos="6.0 0.0 0">
+<joint type="free"/>
+<geom mass="1" contype="1" conaffinity="1" rgba="0 .9 0 0.5" size="0.1 0.1 0.1" type="box"/>
+</body>
+<body pos="5.0 0.0 0">
+<joint type="free"/>
+<geom mass="1" contype="1" conaffinity="1" rgba=".9 .9 0 0.5" size="0.1 0.1 0.1" type="box"/>
+</body>
+<body pos="6.0 0.0 0">
+<joint type="free"/>
+<geom mass="1" contype="1" conaffinity="1" rgba="0 .9 0 0.5" size="0.1 0.1 0.1" type="box"/>
+</body>
+<body pos="5.0 0.0 0">
+<joint type="free"/>
+<geom mass="1" contype="1" conaffinity="1" rgba=".9 .9 0 0.5" size="0.1 0.1 0.1" type="box"/>
+</body>
+<body pos="6.0 0.0 0">
+<joint type="free"/>
+<geom mass="1" contype="1" conaffinity="1" rgba="0 .9 0 0.5" size="0.1 0.1 0.1" type="box"/>
+</body>
+<body pos="5.0 0.0 0">
+<joint type="free"/>
+<geom mass="1" contype="1" conaffinity="1" rgba=".9 .9 0 0.5" size="0.1 0.1 0.1" type="box"/>
+</body>
+<body pos="7.2 1.8 0">
+<joint type="free"/>
+<geom mass="1" contype="1" conaffinity="1" rgba="0 .9 0 0.5" size="0.1 0.1 0.1" type="box"/>
+</body>
+
+<body pos="9.0 9.1 0.2">
+<joint type="free"/>
+<geom contype="1" conaffinity="1" mass="1" rgba="0.9 0 0 0.5" size="0.1 0.1 0.1" type="box"/>
+</body>
+<body pos="1.8 8.8 0.2">
+<joint type="free"/>
+<geom contype="1" conaffinity="1" mass="1" rgba="0.9 0 0 0.5" size="0.1 0.1 0.1" type="box"/>
+</body>
+<body pos="3.6 3.6 0.2">
+<joint type="free"/>
+<geom contype="1" conaffinity="1" mass="1" rgba="0.9 0 0 0.5" size="0.1 0.1 0.1" type="box"/>
+</body>
+<body pos="4.4 4.4 0.2">
+<joint type="free"/>
+<geom contype="1" conaffinity="1" mass="1" rgba="0.9 0 0 0.5" size="0.1 0.1 0.1" type="box"/>
+</body>
+<body pos="7.2 7.2 0.2">
+<joint type="free"/>
+<geom contype="1" conaffinity="1" mass="1" rgba="0.9 0 0 0.5" size="0.1 0.1 0.1" type="box"/>
+</body>
+<body pos="7.0 7.0 0.2">
+<joint type="free"/>
+<geom contype="1" conaffinity="1" mass="1" rgba="0.9 0 0 0.5" size="0.1 0.1 0.1" type="box"/>
+</body>
+<body pos="5.8 5.8 0.2">
+<joint type="free"/>
+<geom contype="1" conaffinity="1" mass="1" rgba="0.9 0 0 0.5" size="0.1 0.1 0.1" type="box"/>
+</body>
+<body pos="5.6 5.6 0.2">
+<joint type="free"/>
+<geom contype="1" conaffinity="1" mass="1" rgba="0.9 0 0 0.5" size="0.1 0.1 0.1" type="box"/>
+</body>
+
+<body pos="1.4 8.4 0.2">
+<joint type="free"/>
+<geom contype="1" conaffinity="1" mass="1" rgba="0.9 0 0 0.5" size="0.1 0.1 0.1" type="box"/>
+</body>
+<body pos="3.2 8.2 0.2">
+<joint type="free"/>
+<geom contype="1" conaffinity="1" mass="1" rgba="0.9 0 0 0.5" size="0.1 0.1 0.1" type="box"/>
+</body>
+<body pos="4.0 9.0 0.2">
+<joint type="free"/>
+<geom contype="1" conaffinity="1" mass="1" rgba="0.9 0 0 0.5" size="0.1 0.1 0.1" type="box"/>
+</body>
+<body pos="1.8 7.8 0.2">
+<joint type="free"/>
+<geom contype="1" conaffinity="1" mass="1" rgba="0.9 0 0 0.5" size="0.1 0.1 0.1" type="box"/>
+</body>
+<body pos="4.6 7.6 0.2">
+<joint type="free"/>
+<geom contype="1" conaffinity="1" mass="1" rgba="0.9 0 0 0.5" size="0.1 0.1 0.1" type="box"/>
+</body>
+
+</worldbody>
+</mujoco>
