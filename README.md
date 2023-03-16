@@ -17,10 +17,10 @@ https://user-images.githubusercontent.com/58758359/225612848-b161c26a-c738-4491-
 
 ## Dependencies ##
 
-torch >= 1.12
-stable-baselines3 == 1.16
-mujoco
-gym == 0.21
+torch >= 1.12 <br/>
+stable-baselines3 == 1.16 <br/>
+mujoco <br/>
+gym == 0.21 <br/>
 
 
 ## Just in case ##
