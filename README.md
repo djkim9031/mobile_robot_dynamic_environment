@@ -8,10 +8,10 @@ PPO-based reinforcement learning agent training a mobile robot in a dynamic envi
 ### Agent circumventing dynamic/static objects in its scan range ###
 https://user-images.githubusercontent.com/58758359/225612848-b161c26a-c738-4491-af0e-eedb973c552c.mp4
 
-<br />
-### After 350K steps of training ###
-[mobile_nav2.webm](https://user-images.githubusercontent.com/58758359/225613660-aa994c5f-66d1-41f4-be10-5fb618fd5c34.webm)
 
+### After 350K steps of training ###
+
+[mobile_nav2.webm](https://user-images.githubusercontent.com/58758359/225614957-3c0c106b-ddd6-482d-a7ee-66c72ba04734.webm)
 
 
 
