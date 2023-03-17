@@ -15,6 +15,7 @@ https://user-images.githubusercontent.com/58758359/225612848-b161c26a-c738-4491-
 
 ### Learning curves (Mean episode lengths / Mean episode rewards) ###
 
+![Screenshot from 2023-03-17 09-27-35](https://user-images.githubusercontent.com/58758359/225792318-edd7fd51-5c16-44a8-9d22-e0499a568910.png)
 
 ## Dependencies ##
 
